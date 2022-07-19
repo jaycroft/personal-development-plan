@@ -20,8 +20,8 @@ all_skills = ["Active Listening","Empathy","Data Visualization Tools","SQL","Pyt
 
 all_skills.sort()
 
-image = Image.open('logo/ufirst_full-on-ltgray.png')
-st.image(image,width=500)
+
+# st.image(image,width=500)
 st.title('Personal Development Plan Assessment')
 
 
