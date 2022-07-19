@@ -52,7 +52,7 @@ class communication_questions():
 class time_mgmt_questions():
     q1 = 'I know what the deadlines are for projects I am working on.'
     q2 = 'I plan out my day using a calendar and/or todo list.'
-    q3 = 'I have trouble prioritizing tasks.'
+    q3 = 'Prioritizing tasks is easy.'
     q4 = 'I know how and when to shift priorities when they change.'
     q5 = 'I find it easy to eliminate or reschedule low priority items.'
     q6 = 'I set priorities in order of importance and then schedule time around them.'
