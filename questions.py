@@ -1,6 +1,40 @@
+class data_viz_questions():
+    q1 = 'Show Trends Over Time'
+    q2 = 'Compare Data'
+    q3 = 'Show the relationship of parts to the whole.'
+    q4 = 'Show the parts that contribute to the total and compare change over time.'
+    q5 = 'Show groups of related data.'
+    q6 = 'Emphasize the magnitude of change over time.'
+    q7 = 'Show the relationship between two measures.'
+    q8 = 'Show the relationships between three measures.'
+    q9 = "Show trends over time or compare data with two measures."
+    q10 = "Identify patterns of high and low values."
+
+    a1 = "Column Chart, Line Chart, Point Chart"
+    a2 = "Bar Chart, Column Chart"
+    a3 = "Pie Chart"
+    a4 = "Stacked Column Chart"
+    a5 = "Bar Chart, Column Chart"
+    a6 = "Area Chart"
+    a7 = "Scatter Chart"
+    a8 = "Bubble Chart"
+    a9 = "Combination Chart"
+    a10 = "Tree map"
+
+    chart_types = ['Column Chart', 'Line Chart', 'Point Chart', 'Bar Chart', 'Pie Chart', 'Stacked Column Chart',
+                   'Area Chart'
+        , 'Scatter Chart', 'Bubble Chart', 'Combination Chart', 'Tree Map',' ']
+
+    chart_types.sort()
+
+# class sql_questions():
+
+
+
+
 class communication_questions():
     q1 = "I try to anticipate and predict possible causes of confusion, and I deal with them up front."
-    q2 = "When I write an email I give all of the background information and detail I can to make sure that my message is understood."
+    q2 = "When I write an email, I give all of the background information and detail I can to make sure that my message is understood."
     q3 = "I read cues that tell me people understand what I am communicating."
     q4 = "When people talk to me, I try to see their perspectives."
     q5 = "When I finish writing a report, memo, or email, I scan it for typos."
