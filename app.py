@@ -88,7 +88,6 @@ if role == 'Data Analyst/BI Analyst':
     data_analyst.append(['Pandas',pandas_score])
     data_analyst_df = pd.DataFrame(data_analyst, columns=['Skill','Score'])
     technical_expander.write(data_analyst_df)
-
     da_file = data_analyst_df.to_csv(index=None)
 
     technical_expander.download_button(
@@ -101,6 +100,7 @@ if role == 'Data Analyst/BI Analyst':
 
 
 if role == 'Data Engineer':
+    data_engineer =[]
     technical_expander.subheader('SQL')
     technical_expander.write("https://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL")
     sql_score = technical_expander.text_input('Your SQL Quiz Score')
@@ -116,6 +116,21 @@ if role == 'Data Engineer':
     technical_expander.subheader('Pandas')
     technical_expander.write("https://www.w3schools.com/quiztest/quiztest.asp?qtest=PANDAS")
     pandas_score = technical_expander.text_input('Your Pandas Quiz Score')
+
+    data_engineer.append(['SQL', sql_score])
+    data_engineer.append(['Git', git_score])
+    data_engineer.append(['Python',python_score])
+    data_engineer.append(['Pandas', pandas_score])
+    data_engineer_df = pd.DataFrame(data_engineer, columns=['Skill', 'Score'])
+    technical_expander.write(data_engineer_df)
+    de_file = data_engineer_df.to_csv(index=None)
+
+    technical_expander.download_button(
+        label="Download Report",
+        data=de_file,
+        file_name='Data Engineer - Technical Skill.csv',
+        mime='text/csv',
+    )
 
 if role == 'Data Scientist':
     technical_expander.subheader('SQL')
