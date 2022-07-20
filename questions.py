@@ -27,9 +27,6 @@ class data_viz_questions():
 
     chart_types.sort()
 
-# class sql_questions():
-
-
 
 
 class communication_questions():
@@ -62,3 +59,9 @@ class time_mgmt_questions():
     q10 = 'I’m able to find time when I need it in case something important comes up. '
     q11 = 'I’m able to say no when I’m pressed for time.'
     q12 = "At the end of the work day, I leave work at work and spend time doing other things I enjoy."
+
+class career_questions():
+    q1 = "What role do you see yourself in 2-3 years from now?"
+    q2 = "What skills are you interested in developing?"
+    q3 = "Why are you interested in these skills?"
+    q4 = "What steps can you take to start developing these skills?"

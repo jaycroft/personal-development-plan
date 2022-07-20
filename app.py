@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 import numpy as np
-from questions import communication_questions, time_mgmt_questions, data_viz_questions
+from questions import communication_questions, time_mgmt_questions, data_viz_questions, career_questions
 
 tech_skills_select = ('Basic', 'Intermediate', 'Advanced')
 
@@ -28,10 +28,6 @@ st.title('Personal Development Plan Assessment')
 # def main_page():
 
 role = st.selectbox('Role', ('Data Analyst/BI Analyst', 'Data Engineer', 'Data Scientist'))
-# career_expander = st.expander("Career")
-# future_role = st.text_input("What role do you see yourself in 5 years down the road?")
-# skills_needed = st.multiselect("What skills do you think you need to develop for your next role?",all_skills)
-
 
 technical_expander = st.expander("Technical Skills")
 if role == 'Data Analyst/BI Analyst':
@@ -72,27 +68,27 @@ if role == 'Data Analyst/BI Analyst':
 
     technical_expander.subheader('SQL')
     technical_expander.write("https://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL")
-    sql_score = technical_expander.text_input('Your SQL Quiz Score')
+    sql_score = technical_expander.text_input('Your SQL Quiz Score',help="Enter as Percentage")
 
     technical_expander.subheader('Git')
     technical_expander.write("https://www.w3schools.com/quiztest/quiztest.asp?qtest=GIT")
-    git_score = technical_expander.text_input('Your Git Quiz Score')
+    git_score = technical_expander.text_input('Your Git Quiz Score',help="Enter as Percentage")
 
     technical_expander.subheader('Pandas')
     technical_expander.write("https://www.w3schools.com/quiztest/quiztest.asp?qtest=PANDAS")
-    pandas_score = technical_expander.text_input('Your Pandas Quiz Score')
+    pandas_score = technical_expander.text_input('Your Pandas Quiz Score',help="Enter as Percentage")
 
     data_analyst.append(['Data Visualization',data_viz_score])
     data_analyst.append(['SQL',sql_score])
     data_analyst.append(['Git',git_score])
     data_analyst.append(['Pandas',pandas_score])
-    data_analyst_df = pd.DataFrame(data_analyst, columns=['Skill','Score'])
-    technical_expander.write(data_analyst_df)
-    da_file = data_analyst_df.to_csv(index=None)
+    technical_df = pd.DataFrame(data_analyst, columns=['Skill','Score'])
+    # technical_expander.write(technical_df)
+    tech_file = technical_df.to_csv(index=None)
 
     technical_expander.download_button(
-        label="Download Report",
-        data=da_file,
+        label="Download Technical Report",
+        data=tech_file,
         file_name='Data Analyst - Technical Skill.csv',
         mime='text/csv',
     )
@@ -103,51 +99,67 @@ if role == 'Data Engineer':
     data_engineer =[]
     technical_expander.subheader('SQL')
     technical_expander.write("https://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL")
-    sql_score = technical_expander.text_input('Your SQL Quiz Score')
+    sql_score = technical_expander.text_input('Your SQL Quiz Score',help="Enter as Percentage")
 
     technical_expander.subheader('Git')
     technical_expander.write("https://www.w3schools.com/quiztest/quiztest.asp?qtest=GIT")
-    git_score = technical_expander.text_input('Your Git Quiz Score')
+    git_score = technical_expander.text_input('Your Git Quiz Score',help="Enter as Percentage")
 
     technical_expander.subheader('Python')
     technical_expander.write("https://www.w3schools.com/quiztest/quiztest.asp?qtest=PYTHON")
-    python_score = technical_expander.text_input('Your Python Quiz Score')
+    python_score = technical_expander.text_input('Your Python Quiz Score',help="Enter as Percentage")
 
     technical_expander.subheader('Pandas')
     technical_expander.write("https://www.w3schools.com/quiztest/quiztest.asp?qtest=PANDAS")
-    pandas_score = technical_expander.text_input('Your Pandas Quiz Score')
+    pandas_score = technical_expander.text_input('Your Pandas Quiz Score',help="Enter as Percentage")
 
     data_engineer.append(['SQL', sql_score])
     data_engineer.append(['Git', git_score])
     data_engineer.append(['Python',python_score])
     data_engineer.append(['Pandas', pandas_score])
-    data_engineer_df = pd.DataFrame(data_engineer, columns=['Skill', 'Score'])
-    technical_expander.write(data_engineer_df)
-    de_file = data_engineer_df.to_csv(index=None)
+    technical_df = pd.DataFrame(data_engineer, columns=['Skill', 'Score'])
+    # technical_expander.write(data_engineer_df)
+    tech_file = technical_df.to_csv(index=None)
 
     technical_expander.download_button(
         label="Download Report",
-        data=de_file,
+        data=tech_file,
         file_name='Data Engineer - Technical Skill.csv',
         mime='text/csv',
     )
 
 if role == 'Data Scientist':
+    data_scientist = []
     technical_expander.subheader('SQL')
     technical_expander.write("https://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL")
-    sql_score = technical_expander.text_input('Your SQL Quiz Score')
+    sql_score = technical_expander.text_input('Your SQL Quiz Score',help="Enter as Percentage")
 
     technical_expander.subheader('Git')
     technical_expander.write("https://www.w3schools.com/quiztest/quiztest.asp?qtest=GIT")
-    git_score = technical_expander.text_input('Your Git Quiz Score')
+    git_score = technical_expander.text_input('Your Git Quiz Score',help="Enter as Percentage")
 
     technical_expander.subheader('Pandas')
     technical_expander.write("https://www.w3schools.com/quiztest/quiztest.asp?qtest=PANDAS")
-    pandas_score = technical_expander.text_input('Your Pandas Quiz Score')
+    pandas_score = technical_expander.text_input('Your Pandas Quiz Score',help="Enter as Percentage")
 
     technical_expander.subheader('SciPy')
     technical_expander.write("https://www.w3schools.com/quiztest/quiztest.php?qtest=SCIPY")
-    pandas_score = technical_expander.text_input('Your SciPy Quiz Score')
+    scipy_score = technical_expander.text_input('Your SciPy Quiz Score',help="Enter as Percentage")
+
+    data_scientist.append(['SQL', sql_score])
+    data_scientist.append(['Git', git_score])
+    data_scientist.append(['Pandas', pandas_score])
+    data_scientist.append(['SciPy', scipy_score])
+    technical_df = pd.DataFrame(data_scientist, columns=['Skill', 'Score'])
+    # technical_expander.write(data_engineer_df)
+    tech_file = technical_df.to_csv(index=None)
+
+    technical_expander.download_button(
+        label="Download Report",
+        data=tech_file,
+        file_name='Data Engineer - Technical Skill.csv',
+        mime='text/csv',
+    )
 
 # def communication():
 communication_expander = st.expander("Communication Skills")
@@ -187,7 +199,7 @@ comm_df['Numeric Value'] = comm_df['Response'].map({'Always': 1, 'Almost Always'
 # communication_expander.markdown("## Score: "+str(comm_df['Numeric Value'].sum()))
 comm_file = comm_df.to_csv(index=None).encode('utf-8')
 communication_expander.download_button(
-    label="Download Communication Results",
+    label="Download Communication Report",
     data=comm_file,
     file_name='Communication.csv',
     mime='text/csv',
@@ -226,28 +238,36 @@ time_df['Numeric Value'] = time_df['Response'].map({'Always': 1, 'Almost Always'
 
 time_file = time_df.to_csv(index=None).encode('utf-8')
 time_mgmt_expander.download_button(
-    label="Download Time Management Results",
+    label="Download Time Management Report",
     data=time_file,
     file_name='Time Management.csv',
     mime='text/csv',
 )
 
+career_expander = st.expander("Interests")
+# future_role = career_expander.text_input(career_questions.q1)
+skills_needed = career_expander.multiselect(career_questions.q2,all_skills)
+other_skills = career_expander.text_input("Other skills not specified above:",help="Use commas between each additional skill.")
+why_needed = career_expander.text_area(career_questions.q3)
+steps = career_expander.text_area(career_questions.q4)
 
 
 
-# def career():
 
 
 
-# def Results ():
-summary_report = "CURRENT ROLE: "+role\
-                 +"\n\nFUTURE ROLE: " \
+summary_report = "CURRENT ROLE: "+ role +"\n\n" \
                  + str(comm_df)\
                  +"\n\nCOMMUNICATION SCORE: "+ str(comm_df['Numeric Value'].sum()) \
                  +"\n\nCOMMUNICATION SCORING:\n14-28 Excellent\n29-42 Good\n43-70 Needs Improvement\n"\
                  + str(time_df)\
                  +"\n\nTIME MANAGEMENT SCORE: "+ str(time_df['Numeric Value'].sum()) \
-                 +"\n\nTIME MANAGEMENT SCORING:\n11-24 Excellent\n25-31 Good\n32+ Needs Improvement\n"\
+                 +"\n\nTIME MANAGEMENT SCORING:\n11-24 Excellent\n25-31 Good\n32+ Needs Improvement\n\n"\
+                 +str(technical_df) \
+                 +"\n\nSkills Listed: " + str(skills_needed) \
+                 +"\n\nOther Skills Listed: "+ other_skills\
+                 +"\n\nReason for Skills:\n\n" + why_needed \
+                 +"\n\nNext Steps:\n\n" + steps
 
 
 
