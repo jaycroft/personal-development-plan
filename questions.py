@@ -22,8 +22,7 @@ class data_viz_questions():
     a10 = "Tree map"
 
     chart_types = ['Column Chart', 'Line Chart', 'Point Chart', 'Bar Chart', 'Pie Chart', 'Stacked Column Chart',
-                   'Area Chart'
-        , 'Scatter Chart', 'Bubble Chart', 'Combination Chart', 'Tree Map',' ']
+                   'Area Chart','Scatter Chart', 'Bubble Chart', 'Combination Chart', 'Tree Map',' ']
 
     chart_types.sort()
 

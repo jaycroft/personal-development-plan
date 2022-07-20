@@ -16,7 +16,7 @@ all_skills = ["Active Listening","Empathy","Data Visualization Tools","SQL","Pyt
             ,"Amazon Web Services (AWS)","Apache Airflow","Apache Spark","MySQL","Microsoft SQL Server","PostgreSQL"
             ,"Hadoop","Apache Kafka","Computer Vision","Natural Language Processing","Amazon Redshift","Deep Learning"
             ,"Data Manipulation","Big Data","Feature Selection","Regression Analysis","NoSQL","Model Deployment"
-            ,"Tensorflow","Database Management","Spreadsheets","DevOps"]
+            ,"Tensorflow","Database Management","Spreadsheets","DevOps","ETL","Excel","DOMO","Tableau","Looker"]
 
 all_skills.sort()
 
@@ -247,7 +247,7 @@ time_mgmt_expander.download_button(
 career_expander = st.expander("Interests")
 # future_role = career_expander.text_input(career_questions.q1)
 skills_needed = career_expander.multiselect(career_questions.q2,all_skills)
-other_skills = career_expander.text_input("Other skills not specified above:",help="Use commas between each additional skill.")
+other_skills = career_expander.text_input("Other skills not listed above:",help="Use commas between each additional skill.")
 why_needed = career_expander.text_area(career_questions.q3)
 steps = career_expander.text_area(career_questions.q4)
 
@@ -256,14 +256,14 @@ steps = career_expander.text_area(career_questions.q4)
 
 
 
-summary_report = "CURRENT ROLE: "+ role +"\n\n" \
-                 + str(comm_df)\
+summary_report = "CURRENT ROLE: "+ role \
+                 + "\n\nTECHNICAL SCORES:\n\n" + str(technical_df) \
+                 +"\n\n" + str(comm_df)\
                  +"\n\nCOMMUNICATION SCORE: "+ str(comm_df['Numeric Value'].sum()) \
                  +"\n\nCOMMUNICATION SCORING:\n14-28 Excellent\n29-42 Good\n43-70 Needs Improvement\n"\
                  + str(time_df)\
                  +"\n\nTIME MANAGEMENT SCORE: "+ str(time_df['Numeric Value'].sum()) \
-                 +"\n\nTIME MANAGEMENT SCORING:\n11-24 Excellent\n25-31 Good\n32+ Needs Improvement\n\n"\
-                 +str(technical_df) \
+                 +"\n\nTIME MANAGEMENT SCORING:\n11-24 Excellent\n25-31 Good\n32+ Needs Improvement"\
                  +"\n\nSkills Listed: " + str(skills_needed) \
                  +"\n\nOther Skills Listed: "+ other_skills\
                  +"\n\nReason for Skills:\n\n" + why_needed \
